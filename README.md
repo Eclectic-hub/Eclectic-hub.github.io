@@ -64,8 +64,9 @@
   <section id="videos" class="py-16 max-w-4xl mx-auto text-center">
     <h2 class="text-3xl font-bold mb-8">Latest from YouTube</h2>
     <div id="youtube-video" class="aspect-w-16 aspect-h-9 mb-4"></div>
-    <a href="https://www.youtube.com/@TheEclecticHub" target="_blank" class="bg-red-600 text-white px-6 py-2 rounded-full shadow-md hover:bg-red-700">Subscribe</a>https://www.youtube.com/@Eclectic-hub
-  </section>
+    <a href="https://www.youtube.com/@TheEclecticHub" target="_blank" class="bg-red-600 text-white px-6 py-2 rounded-full shadow-md hover:bg-red-700">Subscribe</a>
+    </section const API_KEY = "YOUR_YOUTUBE_API_KEY_HERE";
+const CHANNEL_ID = "(https://www.youtube.com/@Eclectic-hub)";
 
   <!-- Affiliate Offers -->
   <section id="offers" class="py-16 bg-gray-100">
