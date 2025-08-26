@@ -1,161 +1,192 @@
-# Eclectic-hub.github.io
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Eclectic Hub</title>
-  <meta name="description" content="The Eclectic Hub - Explore finance, tech, and travel insights with curated affiliate offers, programs, and videos." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    /* Reset */
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:Arial, sans-serif;line-height:1.6;color:#333;background:#f9fafb;}
 
-  <!-- Open Graph for social preview -->
-  <meta property="og:title" content="The Eclectic Hub" />
-  <meta property="og:description" content="Explore finance, tech, and travel with us. Watch videos, join offers, and stay inspired." />
-  <meta property="og:image" content="assets/preview.png" />
-  <meta property="og:type" content="website" />
+    /* Navbar */
+    header{background:#4f46e5;color:white;padding:1rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;}
+    header img{height:40px;}
+    nav a{color:white;text-decoration:none;margin:0 1rem;font-weight:bold;}
+    nav a:hover{color:#d1d5db;}
 
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    /* Hero */
+    .hero{background:linear-gradient(135deg,#4f46e5,#9333ea);color:white;text-align:center;padding:5rem 2rem;}
+    .hero h1{font-size:2.5rem;margin-bottom:1rem;}
+    .hero p{font-size:1.2rem;margin-bottom:2rem;}
+    .btn{background:#f59e0b;color:white;padding:.8rem 1.5rem;border:none;border-radius:25px;cursor:pointer;font-size:1rem;}
+    .btn:hover{background:#d97706;}
 
-  <!-- Google Analytics Placeholder -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
+    /* Sections */
+    section{padding:4rem 2rem;max-width:1200px;margin:auto;}
+    h2{text-align:center;margin-bottom:2rem;color:#4f46e5;}
 
-  <!-- Meta Pixel Placeholder -->
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '000000000000000'); 
-    fbq('track', 'PageView');
-  </script>
+    /* YouTube */
+    .youtube iframe{width:100%;height:400px;border:none;border-radius:10px;}
+
+    /* Cards */
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;}
+    .card{background:white;padding:1.5rem;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,0.1);text-align:center;}
+    .card h3{margin-bottom:1rem;color:#9333ea;}
+    .card p{margin-bottom:1rem;}
+    .card .btn{margin-top:auto;}
+
+    /* Signup */
+    .signup{text-align:center;background:#eef2ff;padding:3rem;border-radius:15px;}
+    .signup input{padding:.8rem;width:250px;border:1px solid #ccc;border-radius:25px;margin-right:.5rem;}
+    .signup button{padding:.8rem 1.5rem;border:none;background:#4f46e5;color:white;border-radius:25px;cursor:pointer;}
+    .signup button:hover{background:#4338ca;}
+
+    /* Footer */
+    footer{background:#1f2937;color:#d1d5db;padding:2rem;text-align:center;margin-top:3rem;}
+    footer a{color:#f59e0b;text-decoration:none;}
+    footer .socials a{margin:0 .5rem;color:#d1d5db;}
+    footer .socials a:hover{color:white;}
+
+    /* Popup */
+    #exitPopup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;}
+    #exitPopup .content{background:white;padding:2rem;border-radius:15px;text-align:center;max-width:400px;}
+    #exitPopup button{margin-top:1rem;background:#4f46e5;color:white;border:none;padding:.7rem 1.2rem;border-radius:25px;cursor:pointer;}
+    #exitPopup button:hover{background:#4338ca;}
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-  <!-- Header -->
-  <header class="p-6 bg-white shadow-md flex items-center justify-between">
-    <img src="assets/logo.svg" alt="The Eclectic Hub Logo" class="h-10">
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <img src="logo.svg" alt="The Eclectic Hub Logo">
     <nav>
-      <ul class="flex gap-6 text-lg font-medium">
-        <li><a href="#videos" class="hover:text-blue-600">Videos</a></li>
-        <li><a href="#offers" class="hover:text-blue-600">Offers</a></li>
-        <li><a href="#programs" class="hover:text-blue-600">Programs</a></li>
-        <li><a href="#newsletter" class="hover:text-blue-600">Newsletter</a></li>
-      </ul>
+      <a href="#home">Home</a>
+      <a href="#youtube">YouTube</a>
+      <a href="#programs">Programs</a>
+      <a href="#affiliate">Affiliates</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="text-center py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-    <h1 class="text-4xl font-extrabold mb-4">Welcome to The Eclectic Hub</h1>
-    <p class="text-lg mb-8">Your gateway to Finance 💼, Tech 🤖, and Travel ✈️ insights.</p>
-    <a href="#videos" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold shadow-md hover:bg-gray-100">Watch Latest Video</a>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <h1>Welcome to The Eclectic Hub</h1>
+    <p>Your one-stop space for Finance, Tech, and Travel insights.</p>
+    <button class="btn">Explore Now</button>
   </section>
 
-  <!-- Latest YouTube Video -->
-  <section id="videos" class="py-16 max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-8">Latest from YouTube</h2>
-    <div id="youtube-video" class="aspect-w-16 aspect-h-9 mb-4"></div>
-    <a href="https://www.youtube.com/@Eclectic-hub" target="_blank" class="bg-red-600 text-white px-6 py-2 rounded-full shadow-md hover:bg-red-700">Subscribe</a>
+  <!-- YouTube -->
+  <section id="youtube" class="youtube">
+    <h2>Latest from Our YouTube Channel</h2>
+    <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=CHANNEL_ID" allowfullscreen></iframe>
+    <div style="text-align:center;margin-top:1rem;">
+      <a href="https://www.youtube.com/@YourChannel" target="_blank" class="btn">Visit Channel</a>
+    </div>
   </section>
 
-  <!-- Affiliate Offers -->
-  <section id="offers" class="py-16 bg-gray-100">
-    <h2 class="text-3xl font-bold text-center mb-12">Featured Offers</h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <!-- Finance -->
-      <div class="bg-white rounded-xl shadow-lg p-6">
-        <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="Finance" class="h-16 mx-auto mb-4">
-        <h3 class="text-xl font-semibold mb-2">Binance - Trade Crypto</h3>
-        <p class="mb-4">Start trading Bitcoin and altcoins securely on the world's largest crypto exchange.</p>
-        <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Join Now</a>
+  <!-- Programs -->
+  <section id="programs">
+    <h2>Our Programs</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Finance Growth</h3>
+        <p>Learn how to grow and manage wealth effectively.</p>
+        <button class="btn">Learn More</button>
       </div>
-      <!-- Tech -->
-      <div class="bg-white rounded-xl shadow-lg p-6">
-        <img src="https://cdn.worldvectorlogo.com/logos/amazon-icon-1.svg" alt="Amazon" class="h-16 mx-auto mb-4">
-        <h3 class="text-xl font-semibold mb-2">Amazon Tech Store</h3>
-        <p class="mb-4">Shop the latest gadgets, laptops, and devices at the best prices.</p>
-        <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Shop Now</a>
+      <div class="card">
+        <h3>Tech Insights</h3>
+        <p>Explore the latest in technology and AI tools.</p>
+        <button class="btn">Learn More</button>
       </div>
-      <!-- Travel -->
-      <div class="bg-white rounded-xl shadow-lg p-6">
-        <img src="https://cdn.worldvectorlogo.com/logos/bookingcom-1.svg" alt="Travel" class="h-16 mx-auto mb-4">
-        <h3 class="text-xl font-semibold mb-2">Booking.com</h3>
-        <p class="mb-4">Book hotels, flights, and travel experiences at great discounts.</p>
-        <a href="YOUR_AFFILIATE_LINK_HERE" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Book Now</a>
+      <div class="card">
+        <h3>Travel Hacks</h3>
+        <p>Discover cost-saving tips and global destinations.</p>
+        <button class="btn">Learn More</button>
       </div>
     </div>
   </section>
 
-  <!-- Program Packages -->
-  <section id="programs" class="py-16 max-w-6xl mx-auto text-center">
-    <h2 class="text-3xl font-bold mb-12">Our Program Packages</h2>
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-8 rounded-xl shadow-lg">
-        <h3 class="text-2xl font-semibold mb-4">Starter</h3>
-        <p class="mb-6">Perfect for beginners exploring finance, tech, and travel content.</p>
-        <p class="font-bold text-2xl mb-4">$19/mo</p>
-        <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">Get Started</a>
+  <!-- Affiliate -->
+  <section id="affiliate">
+    <h2>Affiliate Picks</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Affiliate Product 1</h3>
+        <p>Short description of the affiliate product.</p>
+        <a href="#" class="btn">Shop Now</a>
       </div>
-      <div class="bg-white p-8 rounded-xl shadow-lg border-4 border-blue-600">
-        <h3 class="text-2xl font-semibold mb-4">Pro</h3>
-        <p class="mb-6">Unlock deeper insights, exclusive tips, and premium resources.</p>
-        <p class="font-bold text-2xl mb-4">$49/mo</p>
-        <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">Upgrade</a>
-      </div>
-      <div class="bg-white p-8 rounded-xl shadow-lg">
-        <h3 class="text-2xl font-semibold mb-4">Elite</h3>
-        <p class="mb-6">All-inclusive access, mentoring, and priority support for your growth.</p>
-        <p class="font-bold text-2xl mb-4">$99/mo</p>
-        <a href="#" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700">Go Elite</a>
+      <div class="card">
+        <h3>Affiliate Product 2</h3>
+        <p>Short description of the affiliate product.</p>
+        <a href="#" class="btn">Shop Now</a>
       </div>
     </div>
   </section>
 
-  <!-- Newsletter -->
-  <section id="newsletter" class="py-16 bg-gray-900 text-white text-center">
-    <h2 class="text-3xl font-bold mb-6">Join Our Newsletter</h2>
-    <p class="mb-6">Get curated finance, tech, and travel insights directly to your inbox.</p>
-    <form action="YOUR_MAILCHIMP_FORM_ACTION_URL" method="post" class="flex flex-col md:flex-row justify-center gap-4 max-w-xl mx-auto">
-      <input type="email" name="EMAIL" placeholder="Enter your email" required class="flex-1 px-4 py-3 rounded-md text-gray-900" />
-      <button type="submit" class="bg-blue-600 px-6 py-3 rounded-md hover:bg-blue-700">Subscribe</button>
+  <!-- Blog -->
+  <section id="blog">
+    <h2>From the Blog</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Blog Post Title</h3>
+        <p>Preview text for your article...</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+      <div class="card">
+        <h3>Blog Post Title</h3>
+        <p>Preview text for your article...</p>
+        <a href="#" class="btn">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup -->
+  <section class="signup">
+    <h2>Join The Eclectic Hub Community</h2>
+    <p>Get updates, tips, and exclusive offers directly to your inbox.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Join Now</button>
     </form>
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 bg-gray-800 text-gray-400 text-center">
-    <p>&copy; <span id="year"></span> The Eclectic Hub. All Rights Reserved.</p>
+  <footer id="contact">
+    <p class="socials">
+      <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+    </p>
+    <p>Affiliate Disclaimer: Some of the links on this site may be affiliate links. We may earn a commission at no extra cost to you.</p>
+    <p>&copy; 2025 The Eclectic Hub. All rights reserved.</p>
   </footer>
 
+  <!-- Exit Popup -->
+  <div id="exitPopup">
+    <div class="content">
+      <h2>Wait! Don’t leave yet</h2>
+      <p>Join our community for free insights in Finance, Tech & Travel!</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Exit intent popup
+    document.addEventListener("mouseleave", function(e){
+      if(e.clientY < 10){
+        document.getElementById("exitPopup").style.display="flex";
+      }
+    });
+    function closePopup(){
+      document.getElementById("exitPopup").style.display="none";
+    }
 
-    // Fetch latest video (YouTube API)
-    const apiKey = "YOUR_YOUTUBE_API_KEY_HERE";
-    const channelId = "YOUR_CHANNEL_ID_HERE";
-    const videoContainer = document.getElementById("youtube-video");
-
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&order=date&part=snippet&type=video&maxResults=1`)
-      .then(response => response.json())
-      .then(data => {
-        const videoId = data.items[0].id.videoId;
-        videoContainer.innerHTML = `
-          <iframe width="100%" height="400" src="https://www.youtube.com/embed/${videoId}" 
-            frameborder="0" allowfullscreen></iframe>
-        `;
-      })
-      .catch(err => {
-        videoContainer.innerHTML = "<p class='text-red-600'>Error loading video. Check API key & channel ID.</p>";
-      });
+    // Simple form submission (placeholder)
+    document.querySelector(".signup form").addEventListener("submit", function(e){
+      e.preventDefault();
+      alert("Thank you for subscribing!");
+    });
   </script>
 </body>
 </html>
-
